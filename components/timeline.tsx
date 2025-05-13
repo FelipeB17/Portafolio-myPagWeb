@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Briefcase, GraduationCap } from "lucide-react"
+import { Briefcase, GraduationCap } from 'lucide-react'
 
 export default function Timeline() {
   const [ref, inView] = useInView({
@@ -20,7 +20,7 @@ export default function Timeline() {
     },
   }
 
-  const item = {
+  const itemAnimation = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   }
@@ -38,6 +38,16 @@ export default function Timeline() {
     },
     {
       id: 2,
+      title: "Enlace Administrativo",
+      company: "FUNDACION CONEXION PAZ",
+      location: "Cúcuta, Colombia",
+      period: "2022 - 2024",
+      description:
+        "Asesoría y redireccionamiento de población amparada, brindando atención al cliente personalizada. Enlace administrativo para la gestión de oportunidades de bienestar sobre la legislación vigente. Asesoría y creación de canales virtuales para fortalecimiento de la promoción de la organización.",
+      type: "work",
+    },
+    {
+      id: 3,
       title: "Bachiller",
       company: "Colegio Madre Carmen",
       location: "Cúcuta, Colombia",
@@ -64,16 +74,16 @@ export default function Timeline() {
           variants={container}
           className="text-center mb-16"
         >
-          <motion.div variants={item} className="inline-block mb-3">
+          <motion.div variants={itemAnimation} className="inline-block mb-3">
             <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
               Trayectoria
             </span>
           </motion.div>
-          <motion.h2 variants={item} className="text-3xl md:text-5xl font-bold mb-4">
+          <motion.h2 variants={itemAnimation} className="text-3xl md:text-5xl font-bold mb-4">
             Mi <span className="text-gradient">Recorrido</span> Profesional
           </motion.h2>
-          <motion.p variants={item} className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Un vistazo a mi formación académica.
+          <motion.p variants={itemAnimation} className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Un vistazo a mi formación académica y experiencia laboral.
           </motion.p>
         </motion.div>
 
@@ -82,10 +92,10 @@ export default function Timeline() {
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-indigo-600 to-transparent" />
 
           <motion.div initial="hidden" animate={inView ? "show" : "hidden"} variants={container} className="space-y-12">
-            {timelineItems.map((item, index) => (
+            {timelineItems.map((timelineItem, index) => (
               <motion.div
-                key={item.id}
-                variants={item}
+                key={timelineItem.id}
+                variants={itemAnimation}
                 className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
                 <div className="md:w-1/2 md:px-8 mb-8 md:mb-0">
@@ -97,23 +107,23 @@ export default function Timeline() {
                     <div className="flex items-center mb-3">
                       <div
                         className={`p-2 rounded-full mr-3 ${
-                          item.type === "work"
+                          timelineItem.type === "work"
                             ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
                             : "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
                         }`}
                       >
-                        {item.type === "work" ? (
+                        {timelineItem.type === "work" ? (
                           <Briefcase className="h-5 w-5" />
                         ) : (
                           <GraduationCap className="h-5 w-5" />
                         )}
                       </div>
-                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{item.period}</span>
+                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{timelineItem.period}</span>
                     </div>
-                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                    <p className="text-slate-600 dark:text-slate-300 mb-1">{item.company}</p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{item.location}</p>
-                    <p className="text-slate-600 dark:text-slate-300">{item.description}</p>
+                    <h3 className="text-xl font-bold mb-1">{timelineItem.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-300 mb-1">{timelineItem.company}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{timelineItem.location}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{timelineItem.description}</p>
                   </div>
                 </div>
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center">
@@ -127,3 +137,4 @@ export default function Timeline() {
     </section>
   )
 }
+

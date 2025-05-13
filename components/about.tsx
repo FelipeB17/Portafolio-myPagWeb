@@ -67,12 +67,12 @@ export default function About() {
               <div className="relative bg-slate-800 p-6 rounded-lg shadow-xl">
                 <h3 className="text-2xl font-bold mb-4 text-gradient">Mi Historia</h3>
                 <p className="text-slate-300 mb-4">
-                  ¡Hola! Soy Andrés Felipe Beltrán Assaf, orgullosamente cucuteño, nacido en Cúcuta, Norte de Santander,
+                  ¡Hola! Soy Andrés Felipe Beltrán Assaf, orgullosamente de cucuta,Norte de Santander,
                   Colombia. Actualmente estudio Ingeniería de Sistemas desde el año 2022, un camino que elegí no por
                   casualidad, sino por pasión.
                 </p>
                 <p className="text-slate-300 mb-4">
-                  Desde que tengo memoria, me ha fascinado el mundo de la computación. De niño ya me sentía atraído por
+                Desde el uso de mi conciencia, me apasiona el mundo de las tecnologías y la computación, me ha fascinado el mundo de la computación. De niño ya me sentía atraído por
                   los computadores, la tecnología y todo lo que podía crear con ellos. Esa curiosidad creció con el
                   tiempo y se convirtió en una vocación.
                 </p>
